@@ -2,20 +2,24 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>성적 자동 분석기</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js">
+  </script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js">
+  </script>
 </head>
 <body>
 
 <div class="app">
 
-  <!-- ===== 사이드바 ===== -->
+  <!-- 사이드바 -->
   <aside class="sidebar">
     <div class="logo">📋 성적 분석기</div>
 
-    <!-- 파일 업로드 -->
     <div class="side-section">
       <div class="side-label">① 성적 PDF 업로드</div>
       <label class="upload-btn" for="pdfInput">
@@ -25,46 +29,55 @@
       <div id="fileName" class="file-tag hidden"></div>
     </div>
 
-    <!-- 과목명 -->
     <div class="side-section">
       <div class="side-label">② 과목명 입력</div>
-      <input type="text" id="subjectInput" placeholder="예: 국어" class="text-input" />
+      <input 
+        type="text" 
+        id="subjectInput" 
+        placeholder="예: 국어" 
+        class="text-input" />
     </div>
 
-    <!-- 분석 버튼 -->
-    <button id="analyzeBtn" class="btn-primary">📊 분석 시작</button>
+    <button id="analyzeBtn" class="btn-primary">
+      📊 분석 시작
+    </button>
 
-    <div id="loading" class="loading hidden">⏳ PDF 분석 중...</div>
+    <div id="loading" class="loading hidden">
+      ⏳ PDF 분석 중...
+    </div>
 
-    <!-- 평가내용 순서 변경 -->
     <div id="orderSection" class="side-section hidden">
       <div class="side-label">③ 평가내용 순서 변경</div>
       <div id="orderControls"></div>
-      <button id="applyOrderBtn" class="btn-secondary">✔ 순서 적용</button>
+      <button id="applyOrderBtn" class="btn-secondary">
+        ✔ 순서 적용
+      </button>
     </div>
 
-    <!-- 다운로드 -->
     <div id="downloadSection" class="hidden">
-      <button id="downloadBtn" class="btn-green">📥 한글 파일 다운로드</button>
+      <button id="downloadBtn" class="btn-green">
+        📥 한글 파일 다운로드
+      </button>
     </div>
 
   </aside>
 
-  <!-- ===== 메인 콘텐츠 ===== -->
+  <!-- 메인 콘텐츠 -->
   <main class="main">
     <div id="welcomeMsg" class="welcome">
       <div class="welcome-icon">📋</div>
       <div class="welcome-title">나이스 성적 PDF를 업로드하세요</div>
       <div class="welcome-sub">
-        PDF 분석 → 표 자동 생성 → 평가내용 순서 조정 → 한글 파일 다운로드
+        PDF 분석 → 표 자동 생성 → 순서 조정 → 한글 파일 다운로드
       </div>
     </div>
 
-    <!-- 미리보기 표 -->
     <div id="tableSection" class="hidden">
       <div class="table-header-bar">
         <span id="tableTitle" class="table-title"></span>
-        <span class="table-hint">💡 한글에 붙여넣기 가능한 형태로 출력됩니다</span>
+        <span class="table-hint">
+          💡 한글에 붙여넣기 가능한 형태로 출력됩니다
+        </span>
       </div>
       <div class="table-wrap" id="tableWrap"></div>
     </div>
