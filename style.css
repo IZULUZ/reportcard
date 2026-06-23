@@ -1,83 +1,162 @@
+/* ===== 기본 레이아웃 ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    font-family: "Noto Sans KR", sans-serif;
-    background: #f5f7fb;
-    margin: 0;
-    padding: 0;
+  font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+  background: #eef2fb;
+  min-height: 100vh;
+  padding: 40px 20px;
 }
 
 .container {
-    width: 70%;
-    margin: 40px auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-h1 {
-    text-align: center;
-    color: #2b4fff;
-    margin-bottom: 10px;
+/* ===== 상단 타이틀 ===== */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.desc {
-    text-align: center;
-    color: #444;
-    font-size: 15px;
-    margin-bottom: 30px;
+.header h1 {
+  font-size: 28px;
+  color: #2b4fff;
+  margin-bottom: 8px;
 }
 
+.header p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== 카드 ===== */
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-textarea {
-    width: 100%;
-    height: 90px;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    resize: none;
-    font-size: 14px;
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2b4fff;
+  margin-bottom: 16px;
+  border-left: 4px solid #2b4fff;
+  padding-left: 10px;
 }
 
+/* ===== 파일 업로드 영역 ===== */
+.upload-area {
+  border: 2px dashed #c0cbff;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  background: #f5f7ff;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.upload-area:hover { background: #e8ecff; }
+
+.upload-area input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-area p {
+  color: #6677cc;
+  font-size: 14px;
+}
+
+.file-name {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #2b4fff;
+  font-weight: 600;
+}
+
+/* ===== 버튼 ===== */
 button {
-    width: 100%;
-    background: #2b4fff;
-    color: white;
-    border: none;
-    padding: 16px;
-    border-radius: 10px;
-    font-size: 17px;
-    margin-top: 20px;
-    cursor: pointer;
+  width: 100%;
+  background: #2b4fff;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.2s;
 }
 
-button:hover {
-    background: #2340db;
+button:hover { background: #1a35e0; }
+
+#downloadBtn {
+  background: #0a8754;
 }
 
-#output {
-    margin-top: 40px;
+#downloadBtn:hover { background: #076b42; }
+
+/* ===== 로딩 ===== */
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  color: #555;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.student-block {
-    background: #ffffff;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border-left: 6px solid #2b4fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+/* ===== 미리보기 표 ===== */
+.table-wrap {
+  overflow-x: auto;
 }
 
-.name {
-    font-size: 19px;
-    font-weight: 700;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
-.comment {
-    margin-top: 10px;
-    line-height: 1.6;
+thead tr {
+  background: #2b4fff;
+  color: white;
 }
 
-.small { font-size: 12px; color: #888; }
+th {
+  padding: 12px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  color: #333;
+}
+
+tbody tr:hover { background: #f5f7ff; }
+
+/* 등급 원 표시 */
+.circle {
+  font-size: 18px;
+  color: #2b4fff;
+  font-weight: 700;
+}
+
+/* ===== 유틸리티 ===== */
+.hidden { display: none; }
