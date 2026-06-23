@@ -1,5 +1,5 @@
-/* ===== 리셋 & 기본 ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: "Malgun Gothic", "Noto Sans KR", sans-serif;
   background: #f0f3fa;
@@ -7,11 +7,7 @@ body {
   overflow: hidden;
 }
 
-/* ===== 앱 레이아웃: 사이드바 + 메인 ===== */
-.app {
-  display: flex;
-  height: 100vh;
-}
+.app { display: flex; height: 100vh; }
 
 /* ===== 사이드바 ===== */
 .sidebar {
@@ -22,8 +18,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 28px 18px 20px;
-  gap: 0;
   overflow-y: auto;
+  gap: 0;
 }
 
 .logo {
@@ -31,12 +27,9 @@ body {
   font-weight: 800;
   color: #7eb3ff;
   margin-bottom: 28px;
-  letter-spacing: -0.3px;
 }
 
-.side-section {
-  margin-bottom: 20px;
-}
+.side-section { margin-bottom: 18px; }
 
 .side-label {
   font-size: 11px;
@@ -47,7 +40,6 @@ body {
   text-transform: uppercase;
 }
 
-/* 파일 업로드 버튼 */
 .upload-btn {
   display: block;
   background: #2e3f6e;
@@ -100,10 +92,24 @@ body {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   transition: 0.2s;
 }
 .btn-primary:hover { background: #1a35e0; }
+
+.btn-debug {
+  width: 100%;
+  background: #4a3f6e;
+  color: #ccc4f0;
+  border: 1px solid #7a6098;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+.btn-debug:hover { background: #5a4f80; }
 
 .btn-secondary {
   width: 100%;
@@ -129,6 +135,7 @@ body {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
+  margin-top: 10px;
   transition: 0.2s;
 }
 .btn-green:hover { background: #076b42; }
@@ -137,17 +144,17 @@ body {
   text-align: center;
   font-size: 13px;
   color: #aac4f0;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
-/* 순서 변경 드롭다운 */
+/* 순서 변경 */
 .order-row {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 7px;
 }
-.order-row .order-num {
+.order-num {
   background: #2b4fff;
   color: #fff;
   border-radius: 50%;
@@ -179,7 +186,6 @@ body {
   padding: 30px;
 }
 
-/* 웰컴 메시지 */
 .welcome {
   display: flex;
   flex-direction: column;
@@ -191,9 +197,48 @@ body {
 }
 .welcome-icon { font-size: 52px; }
 .welcome-title { font-size: 20px; font-weight: 700; color: #4a5a7a; }
-.welcome-sub { font-size: 14px; color: #8898bb; text-align: center; line-height: 1.7; }
+.welcome-sub {
+  font-size: 14px;
+  color: #8898bb;
+  text-align: center;
+  line-height: 1.7;
+}
 
-/* 표 영역 */
+/* 디버그 패널 */
+.debug-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.close-btn {
+  background: #e55;
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  width: auto;
+  margin: 0;
+}
+.debug-text {
+  background: #1e2a4a;
+  color: #aef;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* 표 */
 .table-header-bar {
   display: flex;
   align-items: center;
@@ -205,10 +250,7 @@ body {
   font-weight: 800;
   color: #1e2a4a;
 }
-.table-hint {
-  font-size: 12px;
-  color: #8898bb;
-}
+.table-hint { font-size: 12px; color: #8898bb; }
 
 .table-wrap {
   background: #fff;
@@ -218,14 +260,13 @@ body {
   padding: 20px;
 }
 
-/* ===== 성적표 표 스타일 (한글 느낌) ===== */
+/* 성적표 표 */
 .grade-table {
   border-collapse: collapse;
   width: 100%;
   font-size: 13px;
   font-family: "Malgun Gothic", sans-serif;
 }
-
 .grade-table th,
 .grade-table td {
   border: 1px solid #555;
@@ -234,8 +275,6 @@ body {
   vertical-align: middle;
   white-space: nowrap;
 }
-
-/* 헤더 */
 .grade-table thead th {
   background: #d9e1f2;
   font-weight: 700;
@@ -243,34 +282,26 @@ body {
   color: #1e2a4a;
   padding: 10px;
 }
-
-/* 번호 열 (좁게) */
-.col-num { width: 50px; }
-/* 이름 열 */
-.col-name { width: 80px; }
-/* 과목 열 */
-.col-subject { width: 70px; }
-/* 평가내용 열 (넓게) */
-.col-eval { text-align: left; min-width: 200px; }
-/* 등급 열 */
+.col-num   { width: 50px; }
+.col-name  { width: 80px; }
+.col-subj  { width: 70px; }
+.col-eval  { text-align: left; min-width: 200px; }
 .col-grade { width: 70px; }
-
-/* 홀짝 학생 배경 구분 */
 .row-even td { background: #fafbff; }
-.row-odd td { background: #fff; }
+.row-odd  td { background: #fff; }
+.cell-merge  { background: #f5f7ff !important; font-weight: 700; }
+.circle-mark { font-size: 16px; color: #cc0000; font-weight: 700; }
 
-/* 병합 셀 스타일 */
-.cell-merge {
-  background: #f5f7ff !important;
-  font-weight: 700;
-}
-
-/* ○ 표시 스타일 */
-.circle-mark {
-  font-size: 16px;
+/* 에러 박스 */
+.error-box {
+  background: #fff3f3;
+  border: 1px solid #ffaaaa;
+  border-radius: 10px;
+  padding: 18px 20px;
   color: #cc0000;
-  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
-/* ===== 유틸 ===== */
 .hidden { display: none !important; }
