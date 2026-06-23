@@ -1,162 +1,276 @@
-/* ===== 기본 레이아웃 ===== */
+/* ===== 리셋 & 기본 ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
-  font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
-  background: #eef2fb;
-  min-height: 100vh;
-  padding: 40px 20px;
+  font-family: "Malgun Gothic", "Noto Sans KR", sans-serif;
+  background: #f0f3fa;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
+/* ===== 앱 레이아웃: 사이드바 + 메인 ===== */
+.app {
+  display: flex;
+  height: 100vh;
 }
 
-/* ===== 상단 타이틀 ===== */
-.header {
-  text-align: center;
-  margin-bottom: 30px;
+/* ===== 사이드바 ===== */
+.sidebar {
+  width: 270px;
+  min-width: 270px;
+  background: #1e2a4a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 18px 20px;
+  gap: 0;
+  overflow-y: auto;
 }
 
-.header h1 {
-  font-size: 28px;
-  color: #2b4fff;
-  margin-bottom: 8px;
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #7eb3ff;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
 }
 
-.header p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* ===== 카드 ===== */
-.card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px 28px;
+.side-section {
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.card-title {
-  font-size: 16px;
+.side-label {
+  font-size: 11px;
   font-weight: 700;
-  color: #2b4fff;
-  margin-bottom: 16px;
-  border-left: 4px solid #2b4fff;
-  padding-left: 10px;
+  color: #7eb3ff;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
-/* ===== 파일 업로드 영역 ===== */
-.upload-area {
-  border: 2px dashed #c0cbff;
-  border-radius: 10px;
-  padding: 30px;
-  text-align: center;
-  background: #f5f7ff;
-  cursor: pointer;
-  position: relative;
-  transition: background 0.2s;
-}
-
-.upload-area:hover { background: #e8ecff; }
-
-.upload-area input[type="file"] {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
-
-.upload-area p {
-  color: #6677cc;
-  font-size: 14px;
-}
-
-.file-name {
+/* 파일 업로드 버튼 */
+.upload-btn {
   display: block;
-  margin-top: 8px;
+  background: #2e3f6e;
+  border: 2px dashed #4a6098;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
   font-size: 13px;
-  color: #2b4fff;
-  font-weight: 600;
+  color: #aac4f0;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+}
+.upload-btn:hover { background: #3a5080; }
+.upload-btn input[type="file"] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
 }
 
-/* ===== 버튼 ===== */
-button {
+.file-tag {
+  background: #2b4fff22;
+  border: 1px solid #4a6098;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #aac4f0;
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+.text-input {
+  width: 100%;
+  background: #2e3f6e;
+  border: 1px solid #4a6098;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  outline: none;
+}
+.text-input::placeholder { color: #6080a8; }
+
+/* 버튼들 */
+.btn-primary {
   width: 100%;
   background: #2b4fff;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 16px;
-  border-radius: 12px;
-  font-size: 16px;
+  padding: 13px;
+  border-radius: 9px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  margin-bottom: 20px;
-  transition: background 0.2s;
+  margin-bottom: 12px;
+  transition: 0.2s;
 }
+.btn-primary:hover { background: #1a35e0; }
 
-button:hover { background: #1a35e0; }
+.btn-secondary {
+  width: 100%;
+  background: #3a5080;
+  color: #aac4f0;
+  border: 1px solid #4a6098;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: 0.2s;
+}
+.btn-secondary:hover { background: #4a6098; }
 
-#downloadBtn {
+.btn-green {
+  width: 100%;
   background: #0a8754;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
 }
+.btn-green:hover { background: #076b42; }
 
-#downloadBtn:hover { background: #076b42; }
-
-/* ===== 로딩 ===== */
 .loading {
   text-align: center;
-  padding: 20px;
-  font-size: 15px;
-  color: #555;
+  font-size: 13px;
+  color: #aac4f0;
+  padding: 10px 0;
+}
+
+/* 순서 변경 드롭다운 */
+.order-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+.order-row .order-num {
+  background: #2b4fff;
+  color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.order-select {
+  flex: 1;
+  background: #2e3f6e;
+  border: 1px solid #4a6098;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: #e0eaff;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ===== 메인 영역 ===== */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+/* 웰컴 메시지 */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 14px;
+  color: #7888aa;
+}
+.welcome-icon { font-size: 52px; }
+.welcome-title { font-size: 20px; font-weight: 700; color: #4a5a7a; }
+.welcome-sub { font-size: 14px; color: #8898bb; text-align: center; line-height: 1.7; }
+
+/* 표 영역 */
+.table-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.table-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e2a4a;
+}
+.table-hint {
+  font-size: 12px;
+  color: #8898bb;
+}
+
+.table-wrap {
   background: #fff;
   border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-
-/* ===== 미리보기 표 ===== */
-.table-wrap {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
   overflow-x: auto;
+  padding: 20px;
 }
 
-table {
-  width: 100%;
+/* ===== 성적표 표 스타일 (한글 느낌) ===== */
+.grade-table {
   border-collapse: collapse;
-  font-size: 14px;
+  width: 100%;
+  font-size: 13px;
+  font-family: "Malgun Gothic", sans-serif;
 }
 
-thead tr {
-  background: #2b4fff;
-  color: white;
-}
-
-th {
-  padding: 12px 10px;
+.grade-table th,
+.grade-table td {
+  border: 1px solid #555;
+  padding: 7px 10px;
   text-align: center;
+  vertical-align: middle;
   white-space: nowrap;
 }
 
-td {
+/* 헤더 */
+.grade-table thead th {
+  background: #d9e1f2;
+  font-weight: 700;
+  font-size: 13px;
+  color: #1e2a4a;
   padding: 10px;
-  border-bottom: 1px solid #eee;
-  text-align: center;
-  color: #333;
 }
 
-tbody tr:hover { background: #f5f7ff; }
+/* 번호 열 (좁게) */
+.col-num { width: 50px; }
+/* 이름 열 */
+.col-name { width: 80px; }
+/* 과목 열 */
+.col-subject { width: 70px; }
+/* 평가내용 열 (넓게) */
+.col-eval { text-align: left; min-width: 200px; }
+/* 등급 열 */
+.col-grade { width: 70px; }
 
-/* 등급 원 표시 */
-.circle {
-  font-size: 18px;
-  color: #2b4fff;
+/* 홀짝 학생 배경 구분 */
+.row-even td { background: #fafbff; }
+.row-odd td { background: #fff; }
+
+/* 병합 셀 스타일 */
+.cell-merge {
+  background: #f5f7ff !important;
   font-weight: 700;
 }
 
-/* ===== 유틸리티 ===== */
-.hidden { display: none; }
+/* ○ 표시 스타일 */
+.circle-mark {
+  font-size: 16px;
+  color: #cc0000;
+  font-weight: 700;
+}
+
+/* ===== 유틸 ===== */
+.hidden { display: none !important; }
